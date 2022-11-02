@@ -12,13 +12,15 @@ end
 # given an array of spicy foods, **return an array of strings**
 # with the names of each spicy food
 def get_names(spicy_foods)
-  # your code here
+  spicy_foods.map{ |n| n[:name]}
 end
 
 # given an array of spicy foods, **return an array of hashes** 
 # where the heat level of the food is greater than 5
 def spiciest_foods(spicy_foods)
-  # your code here
+   heat = spicy_foods.select do |n|
+    n[:heat_level] > 5
+  end
 end
 
 # given an array of spicy foods, **output to the terminal**
@@ -27,7 +29,12 @@ end
 # HINT: you can use * with a string to produce the correct number of 🌶 emoji. 
 # "hello" * 3 == "hellohellohello"
 def print_spicy_foods(spicy_foods)
-  # your code here
+  blam = spicy_foods.map do |n|
+    "#{n[:name]} (#{n[:cuisine]}) | Heat Level: #{n[:heat_level]}"
+  end
+  p blam[0]
+  p blam[1]
+  p blam[2]
 end
 
 # given an array of spicy foods and a string representing a cuisine, **return a single hash**  
